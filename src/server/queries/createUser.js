@@ -1,0 +1,1 @@
+module.exports = (username, lastName, firstName, salt, hash) => `insert into Users (username, familyName, christianName, salt, bloat) values ('${username}', '${lastName}', '${firstName}', '${salt}', '${hash}');`
