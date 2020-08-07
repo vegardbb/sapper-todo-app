@@ -1,1 +1,1 @@
-module.exports = id => `select * from Users where username = '${id}';`
+module.exports = (db, id) => db.prepare('select username, familyName, christianName from Users where username = ?;').get(id)

@@ -1,1 +1,1 @@
-module.exports = id => `delete from Todos where id = '${id}';`
+module.exports = (db, id) => this.db.prepare('delete from Todos where id = ?;').run(id) 
