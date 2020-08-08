@@ -1,17 +1,21 @@
-import sirv from 'sirv';
-import polka from 'polka';
-import compression from 'compression';
-import * as sapper from '@sapper/server';
+import appFactory from './server/appFactory'
+import serverFactory from './server/serverFactory'
 
-const { PORT, NODE_ENV } = process.env;
-const dev = NODE_ENV === 'development';
+const app = appFactory(process.env)
+const server = serverFactory(process.env, app)
+const { PORT } = process.env
+server.listen(
+  PORT,
+  err => {
+    if (err) {
+      console.error(err)
+    }
+  }
+)
 
-polka() // You can also use Express
-	.use(
-		compression({ threshold: 0 }),
-		sirv('static', { dev }),
-		sapper.middleware()
-	)
-	.listen(PORT, err => {
-		if (err) console.log('error', err);
-	});
+// node -r dotenv/config dotenv_config_path=/secret.env src/server.js
+
+process.on('SIGINT', () => {
+  closeConnection()
+  process.exit(0)
+})
