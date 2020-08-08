@@ -2,9 +2,12 @@
   "name": "sapper-todo-app",
   "description": "A simple ToDo App using a simple user authentication system and a SQLite3 database, its web UI is implemented using Sapper.",
   "version": "0.1.1",
-  "main": "static/todolog.js",
   "scripts": {
-    "preinstall": "npm install better-sqlite3@'^7.1.0' --no-save --build-from-source --sqlite3=\"C:\\sqlite3\\db\"",
+    "preinstall": "node ./compileDB.js",
+    "dev": "sapper dev",
+    "build": "sapper build",
+    "export": "sapper export",
+    "start": "node __sapper__/build",
     "test": "ava",
     "lint": "./node_modules/.bin/eslint ."
   },
@@ -23,10 +26,15 @@
     "eslint-plugin-import": "^2.22.0"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "helmet": "^4.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "sapper": "^0.28.0",
+    "svelte": "^3.24.1",
+    "svelte-loader": "^2.13.6",
+    "sirv": "^1.0.5",
     "express-session-sqlite": "^2.0.6"
   }
 }

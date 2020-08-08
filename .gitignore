@@ -1,6 +1,5 @@
 .DS_Store
 .vscode
-node_modules
 .sass-cache
 *.DS_Store
 *.env
@@ -17,3 +16,6 @@ static/*.jpg
 .psd
 stats.json
 sapper-todo.code-workspace
+/node_modules/
+/src/node_modules/@sapper/
+/__sapper__/
