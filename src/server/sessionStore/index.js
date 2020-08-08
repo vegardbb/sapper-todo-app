@@ -1,4 +1,5 @@
-const { Store } = require('express-session')
+import { Store } from 'express-session'
+import connectionFactory from '../database/connectionFactory'
 
 const exists = thing => thing != null && typeof thing === 'object'
 
@@ -17,16 +18,18 @@ function getMaxAge(session) {
 const getDateTime = dateString => `${dateString.slice(0, 10)} ${dateString.slice(11, 19)}`
 
 module.exports = class SQLiteSessionStore extends Store {
-  constructor(db) {
+  constructor(processEnv) {
     super()
-    this.db = db
+    this.db = connectionFactory(processEnv.SESSION_FILE)
   }
+
   destroy(sid, callback) {
     try {
       this.db.prepare('delete from TodoSessions where sid = ?;').run(sid)
       callback()
     } catch (e) { callback(e) }
   }
+
   get(sid, callback) {
     try {
       const row = this.db
@@ -39,6 +42,7 @@ module.exports = class SQLiteSessionStore extends Store {
       } else callback(e)
     }
   }
+
   set(sid, session, callback) {
     try {
       this.db
@@ -51,7 +55,8 @@ module.exports = class SQLiteSessionStore extends Store {
       callback()
     } catch (e) { callback(e) }
   }
-  store.touch(sid, session, callback) {
+
+  touch(sid, session, callback) {
     if (exists(session) && exists(session.cookie) && session.cookie.expires) {
       try {
         this.db
@@ -63,6 +68,6 @@ module.exports = class SQLiteSessionStore extends Store {
           )
         callback(null, true)
       } catch (e) { callback(e) }
-    } callback(null, false)
+    } else callback(null, false)
   }
 }
