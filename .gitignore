@@ -16,3 +16,4 @@ server/logs
 static/*.jpg
 .psd
 stats.json
+sapper-todo.code-workspace

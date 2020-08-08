@@ -1,5 +1,5 @@
 {
-  "name": "Sapper-Todo-App",
+  "name": "sapper-todo-app",
   "description": "A simple ToDo App using a simple user authentication system and a SQLite3 database, its web UI is implemented using Sapper.",
   "version": "0.1.1",
   "main": "static/todolog.js",
@@ -24,10 +24,9 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "helmet": "^4.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "express-session-sqlite": "^2.0.6"
   }
 }
-
-
