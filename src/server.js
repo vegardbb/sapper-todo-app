@@ -1,8 +1,8 @@
 import appFactory from './server/appFactory'
-import serverFactory from './server/serverFactory'
+import http from 'http'
 
 const app = appFactory(process.env)
-const server = serverFactory(process.env, app)
+const server = http.createServer(app)
 const { PORT } = process.env
 server.listen(
   PORT,

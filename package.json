@@ -6,7 +6,6 @@
     "preinstall": "node ./compileDB.js",
     "dev": "sapper dev",
     "build": "sapper build",
-    "export": "sapper export",
     "start": "node __sapper__/build",
     "test": "ava",
     "lint": "./node_modules/.bin/eslint ."
