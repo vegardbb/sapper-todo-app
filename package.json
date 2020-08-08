@@ -11,6 +11,11 @@
   "keywords": [],
   "author": "Vegard Bjerkli Bugge <vegabug@live.no> (https://github.com/vegardbb)",
   "license": "ISC",
+  "ava": {
+    "nodeArguments": [
+      "--experimental-modules"
+    ]
+  },
   "devDependencies": {
     "ava": "^3.11.1",
     "eslint": "^7.6.0",
@@ -24,3 +29,5 @@
     "express-session-sqlite": "^2.0.6"
   }
 }
+
+
