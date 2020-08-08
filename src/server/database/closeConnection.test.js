@@ -1,7 +1,7 @@
-const test = require('ava')
-const close = require('./closeConnection')
+import test from 'ava'
+import close from './closeConnection'
 
-test('close a DB connection', (t) => {
+test('close a DB connection', t => {
   t.plan(1)
   const db = { open: true, close: () => { this.open = false } }
   close(db)
