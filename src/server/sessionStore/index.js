@@ -17,7 +17,7 @@ function getMaxAge(session) {
 
 const getDateTime = dateString => `${dateString.slice(0, 10)} ${dateString.slice(11, 19)}`
 
-module.exports = class SQLiteSessionStore extends Store {
+export default class SQLiteSessionStore extends Store {
   constructor(processEnv) {
     super()
     this.db = connectionFactory(processEnv.SESSION_FILE)

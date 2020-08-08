@@ -1,8 +1,8 @@
-const connectionFactory = require('./connectionFactory')
+import connectionFactory from './connectionFactory'
 
 let db = null
 
-module.exports = function getDatabaseInstance(processEnv) {
+export default function getDatabaseInstance(processEnv) {
   if (!db) {
     db = connectionFactory(processEnv.FILE_NAME)
   }
