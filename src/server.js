@@ -1,4 +1,5 @@
 import http from 'http'
+import 'dotenv/config'
 import appFactory from './server/appFactory'
 import instantiateDB from './server/database'
 import closeConnection from './server/database/closeConnection'
@@ -15,8 +16,6 @@ server.listen(
     }
   }
 )
-
-// node -r dotenv/config dotenv_config_path=/secret.env src/server.js
 
 process.on('SIGINT', () => {
   closeConnection(connection)
