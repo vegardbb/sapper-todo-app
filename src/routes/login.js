@@ -1,5 +1,5 @@
 import { promisify } from 'util'
-import { verifyHash } from '../server/auth/salt'
+import { verifyHash } from '../server/auth'
 import getDB from '../server/database'
 import { getUserByID } from '../server/queries'
 

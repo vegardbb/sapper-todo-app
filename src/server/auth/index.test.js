@@ -1,5 +1,5 @@
 import test from 'ava'
-import { generateHash, generateSalt, verifyHash } from './salt'
+import { generateHash, generateSalt, verifyHash } from '.'
 
 test('Is the generated salt a string and does it have a length', t => {
   const salt = generateSalt()

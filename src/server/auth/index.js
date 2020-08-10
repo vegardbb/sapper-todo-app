@@ -1,16 +1,12 @@
-import { verifyHash } from './salt'
+import { pbkdf2 } from 'crypto'
+import { promisify } from 'util'
+import generateToken from './generateToken'
 
-/**
- * @param {function} queryUserAsync Fetches a user having the value 'username' as ID
- * @param {function} getSaltAndHash Returns the salt and hash values from a user
- * object returned by queryUserAsync
- */
-const factory = (queryUserAsync, getSaltAndHash) => async function authorizeUser(
-  username, password
-) {
-  const userObject = await queryUserAsync(username)
-  const { hash, salt } = getSaltAndHash(userObject)
-  return verifyHash(password, hash, salt)
-}
+const promisified = promisify(pbkdf2)
+const pbkdf = (pass, salt) => promisified(pass, salt, 12304, 80, 'sha512')
 
-export default factory
+const generateSalt = () => generateToken(91 + Math.floor(7 * Math.random()))
+const generateHash = (pass, salt) => pbkdf(pass, salt).then(buf => buf.toString('base64'))
+const verifyHash = (pass, originalHash, salt) => pbkdf(pass, salt).then(buf => buf.toString('base64') === originalHash)
+
+export { generateHash, generateSalt, verifyHash }

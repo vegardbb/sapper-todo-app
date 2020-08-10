@@ -1,6 +1,6 @@
 // POST route for creating a new user
 import { promisify } from 'util'
-import { generateSalt, generateHash } from '../server/auth/salt'
+import { generateSalt, generateHash } from '../server/auth'
 import getDB from '../server/database'
 import { createUser } from '../server/queries'
 
