@@ -1,7 +1,7 @@
 import { Store } from 'express-session'
 import connectionFactory from '../database/connectionFactory'
-
-const exists = thing => thing != null && typeof thing === 'object'
+import exists from '../objectExists'
+import getDateTime from '../getDateString'
 
 function getMaxAge(session) {
   if (exists(session)) {
@@ -12,10 +12,8 @@ function getMaxAge(session) {
       }
     }
   }
-  return 1000 * 60 * 60 * 24 * 32
+  return 2764800000
 }
-
-const getDateTime = dateString => `${dateString.slice(0, 10)} ${dateString.slice(11, 19)}`
 
 export default class SQLiteSessionStore extends Store {
   constructor(processEnv) {
@@ -62,7 +60,7 @@ export default class SQLiteSessionStore extends Store {
         this.db
           .prepare('update TodoSessions set expire = ? where sid = ? and ? <= expire;')
           .run(
-            new Date(session.cookie.expires).getTime(),
+            getDateTime(new Date(session.cookie.expires).toISOString()),
             sid,
             getDateTime(new Date().toISOString())
           )
