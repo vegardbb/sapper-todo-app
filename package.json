@@ -1,9 +1,8 @@
 {
   "name": "sapper-todo-app",
-  "description": "A simple ToDo App using a simple user authentication system and a SQLite3 database, its web UI is implemented using Sapper.",
+  "description": "A simple ToDo App using a simple user authentication system. Its web UI is implemented using Sapper.",
   "version": "0.1.1",
   "scripts": {
-    "preinstall": "node ./compileDB.js",
     "dev": "sapper dev",
     "build": "sapper build",
     "start": "node __sapper__/build",
@@ -31,6 +30,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "helmet": "^4.0.0",
+    "mysql": "^2.18.1",
     "sapper": "^0.28.0",
     "svelte": "^3.24.1",
     "svelte-loader": "^2.13.6",
