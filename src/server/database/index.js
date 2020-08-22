@@ -4,7 +4,7 @@ let db = null
 
 export default function getDatabaseInstance(processEnv) {
   if (!db) {
-    db = connectionFactory(processEnv.FILE_NAME)
+    db = connectionFactory(processEnv)
   }
   return db
 }
