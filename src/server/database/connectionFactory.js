@@ -1,9 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import Database from 'better-sqlite3'
+import { createConnection } from 'mysql'
 
-const factory = fileName => new Database(
-  // eslint-disable-next-line no-console
-  fileName, { readonly: false, timeout: 15000, verbose: console.log }
-)
+const factory = ({ host, user, password }) => createConnection({ host, user, password })
 
 export default factory
