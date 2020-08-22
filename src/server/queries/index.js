@@ -1,13 +1,15 @@
-const createTodo = (db, todoID, text, date, createdBy) => db.prepare('insert into Todos (id, content, created, author) values (?, ?, ?, ?);').run(todoID, text, date, createdBy)
+import runQuery from './runQuery'
 
-const createUser = (db, username, lastName, firstName, salt, hash) => db.prepare('insert into Users (username, familyName, christianName, salt, bloat) values (?, ?, ?, ?, ?);').run(username, lastName, firstName, salt, hash)
+const createTodo = (db, todoID, text, date, createdBy) => runQuery(db)('insert into Todos (id, content, created, author) values (?, ?, ?, ?);', [todoID, text, date, createdBy])
 
-const deleteTodo = (db, id, user) => this.db.prepare('delete from Todos where id = ? and author = ?;').run(id, user)
+const createUser = (db, username, lastName, firstName, salt, hash) => runQuery(db)('insert into Users (username, familyName, christianName, salt, bloat) values (?, ?, ?, ?, ?);', [username, lastName, firstName, salt, hash])
 
-const editTodo = (db, id, text, user) => db.prepare('update Todos set content = text where id = ? and author = ?;').run(text, id, user)
+const deleteTodo = (db, id, user) => runQuery(db)('delete from Todos where id = ? and author = ?;', [id, user])
 
-const getUserByID = (db, id) => db.prepare('select * from Users where username = ?;').get(id)
+const editTodo = (db, id, text, user) => runQuery(db)('update Todos set content = text where id = ? and author = ?;', [text, id, user])
 
-const getUserTodos = (db, username) => db.prepare('select id, content, created from Todos inner join Users on author=username where username = ?;').all(username)
+const getUserByID = (db, id) => runQuery(db)('select * from Users where username = ?;', id)
+
+const getUserTodos = (db, username) => runQuery(db)('select id, content, created from Todos inner join Users on author=username where username = ?;', username) // all
 
 export { createTodo, createUser, deleteTodo, editTodo, getUserByID, getUserTodos }
