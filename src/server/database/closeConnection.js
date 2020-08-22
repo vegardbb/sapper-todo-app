@@ -1,5 +1,5 @@
 export default function closeConnection(db) {
-  if (db.open && typeof db.close === 'function') {
-    db.close()
+  if (typeof db.destroy === 'function') {
+    db.destroy()
   }
 }
