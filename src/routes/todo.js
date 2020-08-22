@@ -20,8 +20,6 @@ export async function del(req, res) {
   try {
     const { userName } = req.session
     const { todoID } = req.body
-    const id = generateToken(96, null)
-    const date = getDateTime(new Date().toISOString())
     await deleteTodo(getDB(), todoID, userName)
     res.end(JSON.stringify({ success: true }))
   } catch (error) {
