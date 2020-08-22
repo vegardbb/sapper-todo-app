@@ -4,6 +4,7 @@ import { generateSalt, generateHash } from '../server/auth'
 import getDB from '../server/database'
 import { createUser } from '../server/queries'
 
+// eslint-disable-next-line import/prefer-default-export
 export async function post(req, res) {
   try {
     const { username, password, firstName, lastName } = req.body
