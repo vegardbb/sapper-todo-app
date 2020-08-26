@@ -10,7 +10,7 @@ export async function post(req, res) {
     const id = generateToken(96, null)
     const date = getDateTime(new Date().toISOString())
     await createTodo(getDB(), id, todoText, date, userName)
-    res.end(JSON.stringify({ success: true }))
+    res.end(JSON.stringify({ success: true, id, date }))
   } catch (error) {
     res.end(JSON.stringify({ error: error.message }))
   }
