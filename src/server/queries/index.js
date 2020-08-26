@@ -10,6 +10,6 @@ const editTodo = (db, id, text, user) => runQuery(db)('update Todos set content 
 
 const getUserByID = (db, id) => runQuery(db)('select * from Users where username = ?;', id)
 
-const getUserTodos = (db, username) => runQuery(db)('select id, content, created from Todos inner join Users on author=username where username = ?;', username) // all
+const getUserTodos = (db, username) => runQuery(db)('select id, content, created, completed from Todos inner join Users on author=username where username = ?;', username)
 
 export { createTodo, createUser, deleteTodo, editTodo, getUserByID, getUserTodos }
