@@ -3,6 +3,7 @@
   export let boldText = 'Form Input'
   export let inField = 'Write text'
   export let required = false
+  export let isPasswd = false
 </script>
 
 <style>
@@ -24,4 +25,4 @@ input[type=text]:focus, input[type=password]:focus {
 </style>
 
 <label for="{inputID}"><b>{boldText}</b></label>
-<input type="text" placeholder="{inField}" name="{inputID}" {required}>
+<input type={isPasswd ? 'password' : 'text'} placeholder="{inField}" name="{inputID}" {required}>
