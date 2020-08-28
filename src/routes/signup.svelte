@@ -23,7 +23,7 @@
 </script>
 
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+/* body {font-family: Arial, Helvetica, sans-serif;} */
 * {box-sizing: border-box;}
 
 /* Style the horizontal ruler */
@@ -45,9 +45,10 @@ hr {
   <Input inputID="username" boldText="Username" inField="Enter your user name" required />
   <Input inputID="firstname" boldText="First name" inField="Enter your first name" required />
   <Input inputID="lastname" boldText="Last name" inField="Enter your last name" required />
-  <Input inputID="psw" boldText="Password" inField="Enter your password" required />
-  <Input inputID="psw-repeat" boldText="Repeat Password" inField="Repeat Password" required />
+  <Input inputID="psw" boldText="Password" inField="Enter your password" required isPasswd />
+  <Input inputID="psw-repeat" boldText="Repeat Password" inField="Repeat Password" required isPasswd />
   <!-- <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me -->
   <!-- </label> -->
   <!-- <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
+  <SubmitButton innerText="Create new account" />
 </Form>
