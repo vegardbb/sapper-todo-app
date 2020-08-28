@@ -4,6 +4,10 @@
   }
 </script>
 
+<script>
+  export let loginRequired
+</script>
+
 <style>
   h1, figure, p {
     text-align: center;
