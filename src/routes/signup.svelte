@@ -1,5 +1,5 @@
 <script>
-  import { goto } from 'sapper/@app'
+  // import * as sapper from '@sapper/app.mjs';
   import Form from '../components/FormModal.svelte'
   import SubmitButton from '../components/SubmitFormButton.svelte'
   import Input from '../components/FormInput.svelte'
@@ -18,7 +18,7 @@
 	const { error, loginRequired } = await response.json()
 	if (loginRequired) {
       error = response.error
-    } else goto('todos') // redirect to the todo page
+    } // else sapper.goto('todos') // redirect to the todo page
   }
 </script>
 

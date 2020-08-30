@@ -85,12 +85,6 @@
 </svelte:head>
 
 <style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 button {
   margin: 0;
   padding: 0;
@@ -406,7 +400,7 @@ body {
 }
 
 .clear-completed,
-html .clear-completed:active {
+.clear-completed:active {
   float: right;
   position: relative;
   line-height: 20px;
