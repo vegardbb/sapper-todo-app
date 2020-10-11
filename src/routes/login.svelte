@@ -1,5 +1,4 @@
 <script>
-  import goto from '../goto'
   import Form from '../components/FormModal.svelte'
   import SubmitButton from '../components/SubmitFormButton.svelte'
   import Input from '../components/FormInput.svelte'
@@ -18,7 +17,7 @@
 	const { error, loginRequired } = await response.json()
 	if (loginRequired) {
       error = response.error
-    } else goto('todos') // redirect to the todo page
+    } else this.redirect(301, 'todos') // redirect to the todo page
   }
 </script>
 

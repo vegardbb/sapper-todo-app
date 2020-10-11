@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
-    "start": "node __sapper__/build",
+    "start": "node --experimental-modules __sapper__/build",
     "test": "ava",
     "lint": "./node_modules/.bin/eslint ."
   },
@@ -33,9 +33,9 @@
     "express-session": "^1.17.1",
     "helmet": "^4.0.0",
     "mysql": "^2.18.1",
-    "sapper": "^0.28.0",
-    "svelte": "^3.24.1",
-    "svelte-loader": "^2.13.6",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0",
+    "svelte-loader": "^2.9.0",
     "sirv": "^1.0.5"
   }
 }
