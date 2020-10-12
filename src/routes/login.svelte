@@ -5,6 +5,7 @@
   let error
 
   async function handleLogin(event) {
+    console.log(event)
     const { username, psw } = event.target
     const response = await fetch("/login", {
       method: "POST",

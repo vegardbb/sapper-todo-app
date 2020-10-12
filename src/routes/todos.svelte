@@ -30,10 +30,10 @@
 
   async function remove(todoID) {
     const response = await this.fetch('todo', { method: 'DELETE', body: JSON.stringify({ todoID }) })
-	const { success } = await response.json()
-	if (success) {
+	  const { success } = await response.json()
+	  if (success) {
       items = items.slice(0, index).concat(items.slice(index + 1));	
-	}
+	  }
   }
 
   function toggleAll(event) {

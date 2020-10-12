@@ -28,9 +28,11 @@ export default function appFactory(processEnv) {
   app.use(sapper.middleware({
     session: req => {
       const { session: s } = req
+      console.log(s)
       if (exists(s)) {
-        const { christianName, familyName } = s
+        const { christianName, familyName, userName } = s
         return {
+          loginRequired: typeof userName !== 'string',
           firstName: typeof christianName === 'string' ? christianName : null,
           lastName: typeof familyName === 'string' ? familyName : null
         }

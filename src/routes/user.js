@@ -17,7 +17,7 @@ export async function post(req, res) {
     req.session.lastName = lastName
     req.session.userName = username
     await saveSession()
-    res.end(JSON.stringify({ firstName, lastName, username }))
+    res.end(JSON.stringify({ loginRequired: false, firstName, lastName, username }))
   } catch (error) {
     res.end(JSON.stringify({ loginRequired: true, error: error.message }))
   }

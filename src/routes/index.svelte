@@ -1,6 +1,7 @@
 <script context="module">
   export async function preload(page, session) {
-    return session;
+    console.log(arguments)
+    return session
   }
 </script>
 
@@ -9,30 +10,13 @@
 </script>
 
 <style>
-  h1, figure, p {
+  h1 {
     text-align: center;
     margin: 0 auto;
-  }
-
-  h1 {
     font-size: 2.8em;
     text-transform: uppercase;
     font-weight: 700;
     margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
   }
 
   @media (min-width: 480px) {
@@ -43,20 +27,13 @@
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>Todo App</title>
 </svelte:head>
 
-<h1>Hello world!</h1>
+<h1>Index</h1>
 
-<figure>
-  <!--- Try changing the src value to successkid.jpg while running lol --->
-  <img alt='Applejack' src='applejack.png'>
-  <figcaption>Have fun with Sapper!</figcaption>
-</figure>
+<h2><a aria-current="Check out page" href="hello">Browse Hello World page</a></h2>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading. Fun, right?</strong></p>
-
-<h2>Navigate the app</h2>
 {#if loginRequired}
   Insert login links here
   <a aria-current="Sign up" href="signup">Sign up</a>

@@ -5,6 +5,7 @@
   let error
 
   async function signup(event) {
+    console.log(event)
     const { username, psw, firstname, lastname } = event.target
     const response = await fetch("/user", {
       method: "POST",

@@ -15,7 +15,7 @@ export async function post(req, res) {
       req.session.firstName = christianName
       req.session.lastName = familyName
       req.session.userName = username
-      const sess = { ...req.session }
+      const sess = { ...req.session, loginRequired: false }
       await saveSession()
       res.end(JSON.stringify(sess))
     } else {
